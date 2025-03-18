@@ -1,0 +1,332 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.login-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.login-btn:hover {
+  background: #0056b3;
+}
+
+/* Background Animation - Floating Random Dots */
+@keyframes floatDots {
+  from {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-100vh) translateX(calc(-50vw + 100px));
+    opacity: 1;
+  }
+}
+
+.dots-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.dot {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: floatDots linear infinite;
+}
+
+/* Randomized Floating Dots */
+@keyframes moveDots {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(calc(100vw * var(--random-x)), calc(100vh * var(--random-y))); }
+  100% { transform: translate(0, 0); }
+}
+
+.dots-container .dot {
+  width: calc(5px + 15 * var(--random-size));
+  height: calc(5px + 15 * var(--random-size));
+  left: calc(100% * var(--random-x));
+  top: calc(100% * var(--random-y));
+  animation: moveDots 10s infinite ease-in-out;
+}
+
+/* Main Container */
+.container {
+  max-width: 900px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #00ffcc;
+}
+
+/* Add Class Section */
+.add-class {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #00ffcc;
+  border-radius: 5px;
+  width: 250px;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button.add-class-btn {
+  background: #00ffcc;
+  color: black;
+  font-weight: bold;
+}
+
+button.add-class-btn:hover {
+  background: #00b3a7;
+}
+
+/* Class List */
+.class-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Class Card (Floating & Landscape) */
+.class-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  min-height: 160px;
+  justify-content: space-between;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+}
+
+.class-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.class-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.class-header h2 {
+  color: #007bff;
+  font-size: 1.3rem;
+}
+
+button.remove-class {
+  background: #ff4d4d;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  color: white;
+}
+
+button.remove-class:hover {
+  background: #cc0000;
+}
+
+/* Add Exam Section Inside Class Card */
+.add-exam-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+input.exam-input {
+  padding: 8px;
+  border: 1px solid #00ffcc;
+  border-radius: 5px;
+  width: 90%;
+}
+
+button.add-exam {
+  background: #007bff;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  color: white;
+}
+
+button.add-exam:hover {
+  background: #0056b3;
+}
+
+/* Exam List */
+.exam-list {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.exam-item {
+  background: #00ffcc;
+  padding: 12px;
+  margin: 5px 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  font-weight: bold;
+  border: 2px solid #00b3a7;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.exam-item span {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.exam-item button {
+  background: #ff4d4d;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  color: white;
+}
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 15px 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid #00ffcc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.navbar h2 {
+  color: #00ffcc;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navbar ul li {
+  display: inline;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover {
+  color: #00ffcc;
+}
+
+/* Adjust container to prevent overlap */
+.container {
+  margin-top: 80px;
+}
+
+.exam-item button:hover {
+  background: #cc0000;
+}
