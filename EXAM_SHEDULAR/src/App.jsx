@@ -82,7 +82,7 @@ const App = () => {
   return (
     <div className="container">
       <nav className="navbar">
-        <h2>Lab Scheduler</h2>
+        <h2>EXAM Scheduler</h2>
         <ul>
           <li><a href="#" onClick={handleLogout}>Change User</a></li>
           <li><a href="#" onClick={() => toggleSection("about")}>About</a></li>
@@ -90,7 +90,7 @@ const App = () => {
         </ul>
       </nav>
 
-      {activeSection ? null : <h1>Exam Scheduler</h1>}
+      {activeSection ? null : <h1>Schedule</h1>}
 
       {activeSection === "about" && (
         <section id="about">
